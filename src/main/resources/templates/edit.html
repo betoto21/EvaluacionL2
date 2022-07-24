@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Empleado</title>
+</head>
+<body>
+        <form method="post" th:action="@{/saveedit}" th:object="${employee}" >
+            <label>ID Empleado</label> <input type="number" th:value="${employee.getEmployeeid()}" th:field="*{employeeid}" readonly>
+            <br/>
+            <label>RFC </label><input type="text" th:value="${employee.getTaxidnumber()}"  th:field="*{taxidnumber}">
+            <br/>
+            <label>Nombre </label> <input type="text" th:value="${employee.getName()}" th:field="*{name}">
+            <br/>
+            <label>Apellido </label> <input type="text" th:value="${employee.getLastname()}" th:field="*{lastname}">
+            <br/>
+            <label>Fecha de Nacimiento</label> <input type="date" th:value="${employee.getBirthday()}" th:field="*{birthday}">
+            <br/>
+            <label>Email</label> <input type="email" th:value="${employee.getEmail()}" th:field="*{email}">
+            <br/>
+            <label>Celular </label> <input type="text" th:value="${employee.getCellphone()}" th:field="*{cellphone}">
+            <br/>
+            <input type="submit" th:value="Editar">
+        </form>
+        <br/>
+        <br/>
+        <a th:href="@{/}">Volver al Inicio</a>
+</body>
+</html>

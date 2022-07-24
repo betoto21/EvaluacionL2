@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Nuevo Empleado</title>
+</head>
+<body>
+    <h1>Agregar Empleado</h1>
+    <div >
+        <h1 color="red" th:text="${error}"></h1>
+    </div>
+    <form method="post" th:action="@{/saveemployee}" th:object="${employee}">
+        <label>RFC</label> <input type="text" name="tax" minlength="13" maxlength="13" required th:field="*{taxidnumber}">
+        <br/>
+        <br/>
+        <label>Nombre</label> <input type="text" name="name" required th:field="*{name}">
+        <br/>
+        <br/>
+        <label>Apellidos</label> <input type="text" name="lastname" required th:field="*{lastname}">
+        <br/>
+        <br/>
+        <label>Fecha de Nacimiento</label> <input type="date" required th:field="*{birthday}">
+        <br/>
+        <br/>
+        <label>Email</label> <input type="email" required th:field="*{email}">
+        <br/>
+        <br/>
+        <label>Celular</label> <input type="text" maxlength="20" required th:field="*{cellphone}">
+        <br/>
+        <br/>
+        <input type="submit" value="Agregar Empleado">
+
+    </form>
+    <br/>
+    <a th:href="@{/}">Volver al inicio</a>
+
+</body>
+</html>

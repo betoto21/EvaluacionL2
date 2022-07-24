@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Nuevo Contrato</title>
+</head>
+<body>
+     <h1>Agregar un nuevo Contrato</h1>
+     <form method="post" th:action="@{/savecontract}" th:object="${contract}">
+       <label>ID del Empleado</label>
+       <input type="number" name="id" th:field="*{employeeId}" required/>
+       <br/>
+       <br/>
+       <label>Tipo de Contrato</label>
+       <input type="radio" name="role" checked value=1 th:field="*{contractTypeId}"><label> Permanente</label>
+       <input type="radio" name="role"  value=2 th:field="*{contractTypeId}"><label> Plazo fijo</label>
+       <input type="radio"  name="role"  value=3 th:field="*{contractTypeId}"><label> Externo</label>
+       <br/>
+       <br/>
+         <label>Fecha Inicio</label> <input type="date" required name="dateFrom" th:field="*{dateFrom}" >
+         <br/>
+         <br/>
+         <label>Fecha Fin</label> <input type="date" required name="dateTo" th:field="*{dateTo}">
+         <br/>
+         <br/>
+         <label>Salario por dia</label> <input type="number" required name="salary" th:field="*{salaryPerDay}">
+         <br/>
+         <br/>
+         <input type="submit" value="Registrar">
+     </form>
+     <br/>
+     <br/>
+    <a th:href="@{/}">Volver al inicio</a>
+</body>
+</html>
